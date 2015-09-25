@@ -1,0 +1,39 @@
+<html ng-app="starterApp">
+<head>
+<title>Angular Starter</title>    
+<script src="includes/angular.js"></script>    
+<script src="code/app.js"></script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body ng-controller="StarterController as cont">
+    
+
+<div>
+    {{ cont.bat }} {{ animal }}s running across the street
+</div>    
+<hr width="50%" align="left">
+
+    {{ cont.countUnfinishedTasks() }} of {{ cont.taskList.length }} tasks remaining [ <a href="" ng-click="cont.archive()">remove completed</a> ]
+    
+<div>
+<ul style="list-style: none; padding-left: 0">
+    <li class="listyle-{{ element.selected }}" ng-repeat="element in cont.taskList">
+        <input type="checkbox" ng-model="element.selected">
+        {{ element.task }}
+    </li>
+</ul>
+</div>
+    
+<div>
+<form ng-submit="cont.addTask()">
+    <input type="text" ng-model="cont.aTask">
+    <input type="submit" value="Add Task">
+</form>
+</div>
+    
+</body>
+</html>
+
+
+
+
